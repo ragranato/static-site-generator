@@ -16,8 +16,8 @@ def split_nodes_image(nodes):
         while len(text) != 0:            
             image_extract = extract_markdown_images(text)
             if image_extract:
-                for item in image_extract:
-                    alt_text, url = item
+                for image in image_extract:
+                    alt_text, url = image
                     match_section = f"![{alt_text}]({url})"
                     sections = text.split(match_section, 1)
                     if sections[0]:

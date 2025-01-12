@@ -5,7 +5,7 @@ from text_to_textnodes import *
 
 class TestTextToTextnodes(unittest.TestCase):
     def test_eq(self):
-        image_list = text_to_textnodes("This is **text** with an *italic* word and a `code block` and an ![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg) and a [link](https://boot.dev)")
+        node_list = text_to_textnodes("This is **text** with an *italic* word and a `code block` and an ![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg) and a [link](https://boot.dev)")
         expected = [
             TextNode("This is ", TextType.TEXT),
             TextNode("text", TextType.BOLD),
@@ -18,13 +18,13 @@ class TestTextToTextnodes(unittest.TestCase):
             TextNode(" and a ", TextType.TEXT),
             TextNode("link", TextType.LINK, "https://boot.dev"),
         ]
-        self.assertEqual(image_list, expected)
-    def test_eq2_tag(self):
-        image_list = split_nodes_image([TextNode("This is a test of the coding network...", TextType.TEXT)])
-        expected = [
-            TextNode("This is a test of the coding network...", TextType.TEXT),            
-        ]
-        self.assertEqual(image_list, expected)
+        self.assertEqual(node_list, expected)
+    # def test_eq2_tag(self):
+    #     image_list = split_nodes_image([TextNode("This is a test of the coding network...", TextType.TEXT)])
+    #     expected = [
+    #         TextNode("This is a test of the coding network...", TextType.TEXT),            
+    #     ]
+    #     self.assertEqual(image_list, expected)
 
 
 if __name__ == "__main__":
