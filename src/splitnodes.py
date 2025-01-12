@@ -5,7 +5,7 @@ import re
 def split_node_image(nodes):
     new_nodes = []
       
-    for node in old_nodes:
+    for node in nodes:
         if node.text_type != TextType.TEXT:
             new_nodes.append(node)
             continue  # Skip further processing
