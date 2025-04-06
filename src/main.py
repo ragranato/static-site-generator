@@ -1,7 +1,7 @@
 from textnode import *
 
 def main():
-    text = TextNode('hello world', TextType.BOLD_TEXT)
+    text = TextNode('hello world', TextType.BOLD)
     print(text)
 
 
