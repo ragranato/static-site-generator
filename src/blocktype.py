@@ -1,4 +1,5 @@
 from enum import Enum, auto
+import re
 
 class BlockType(Enum):
     PARAGRAPH = auto()
@@ -9,17 +10,23 @@ class BlockType(Enum):
     ORDERED_LIST = auto()
 
 def block_to_block_type(block):
-    if block[0] == "#":
+    block = block.strip()
+    if re.fullmatch(r"^(#{1,6})\s+(.+)$", block):  
         return BlockType.HEADING
-    elif block[0] == "`":
+    elif re.fullmatch(r"^```(?:[\s\S]*?)```$", block, re.DOTALL):
         return BlockType.CODE
-    elif block[0] == ">":
+    elif re.fullmatch(r"^>\s*(.+)$", block, re.DOTALL):
         return BlockType.QUOTE
-    elif block[0] == "- ":
+    elif re.fullmatch(r"^\s*[-+*]\s+(.+)$", block, re.DOTALL):
         return BlockType.UNORDERED_LIST
-    elif block[0] == "\n1. ":
+    elif re.fullmatch(r"^\s*\d+\.\s+(.+)$", block, re.DOTALL):
         return BlockType.ORDERED_LIST
     else:
         return BlockType.PARAGRAPH
     
-
+test_ordered = """
+                        1. lists
+                        2. arrays
+                    """
+print(test_ordered)
+print(block_to_block_type(test_ordered))
