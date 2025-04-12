@@ -13,3 +13,6 @@ class Test_Blocktype(unittest.TestCase):
         ordered_example = block_to_block_type(test_ordered)
         self.assertEqual(code_example, BlockType.CODE)
         self.assertEqual(ordered_example, BlockType.ORDERED_LIST)
+
+if __name__ == "__main__":
+    unittest.main()

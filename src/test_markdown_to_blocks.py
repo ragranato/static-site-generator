@@ -21,3 +21,6 @@ class Test_Markdown_to_Blocks(unittest.TestCase):
                 "- This is a list\n- with items",
             ],
         )
+
+if __name__ == "__main__":
+    unittest.main()

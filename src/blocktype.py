@@ -24,9 +24,9 @@ def block_to_block_type(block):
     else:
         return BlockType.PARAGRAPH
     
-test_ordered = """
-                        1. lists
-                        2. arrays
-                    """
-print(test_ordered)
-print(block_to_block_type(test_ordered))
+# test_ordered = """
+#                         1. lists
+#                         2. arrays
+#                     """
+# print(test_ordered)
+# print(block_to_block_type(test_ordered))
